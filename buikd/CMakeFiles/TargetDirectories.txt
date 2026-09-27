@@ -1,0 +1,3 @@
+/Users/olaslaptop/learningss/practiceday/buikd/CMakeFiles/topdown_game.dir
+/Users/olaslaptop/learningss/practiceday/buikd/CMakeFiles/edit_cache.dir
+/Users/olaslaptop/learningss/practiceday/buikd/CMakeFiles/rebuild_cache.dir

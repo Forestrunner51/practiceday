@@ -10,4 +10,5 @@ C++20 + [raylib](https://www.raylib.com/) 6.0 starter template.
 cmake -S . -B build
 cmake --build build
 ./build/topdown_game
+cmake --build build && ./build/topdown_game
 ```
