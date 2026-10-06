@@ -15,7 +15,6 @@ int main() {
     Vector2 EnemyPos = {TX,TY};
     Vector2 GridPos = {GRX, GRY};
     Vector2 BulletSpeed = {6,3};
-    Vector2 mousePos = GetMousePosition();
     float num = 10;
 
     while (!WindowShouldClose()) {
@@ -45,7 +44,6 @@ int main() {
         PlayerPos.y += 1;
         }
 
-
         BeginDrawing();
         ClearBackground(BLACK);
 
@@ -55,16 +53,6 @@ int main() {
         if (IsKeyDown(KEY_P)){
 
             DrawCircle(EnemyPos.x +10 , EnemyPos.y+10, 20, RED);
-        }
-
-        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)){
-            DrawText("Mouse Clicked!", 20, 60, 20, DARKBLUE);
-
-            DrawText(std::to_string(mousePos.x).c_str(), 20, 450, 20, WHITE);
-            DrawText(std::to_string(mousePos.y).c_str(), 20, 500, 20, WHITE);
-            if (mousePos.x >10){
-                    DrawText("Hit!", 50, 450, 20, YELLOW);
-                }
         }
 
         for (int i =0; i<num; i++){
@@ -82,7 +70,6 @@ int main() {
         DrawText(std::to_string(r).c_str(), 50, 50, 20, RED);
 
         DrawRectangle(EnemyPos.x, EnemyPos.y, 20, 20, RED);
-        DrawText("Enemy", EnemyPos.x, EnemyPos.y, 20, WHITE);
         EndDrawing();
     }
 
