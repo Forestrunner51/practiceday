@@ -1,11 +1,15 @@
 #include <raylib.h>
+#include <iostream>
 #include <string>
+#include <list>
 #include <cmath>
 
 int main() {
     InitWindow(800, 600, "Top-Down Game");
     SetTargetFPS(60);
 
+    std::list<std::string> cars = {"Volvo", "BMW","Ford", "Mazda"};
+    std::list<std::string> track = {"Volvo", "BMW","Ford", "Mazda"};
 
     Vector2 PlayerPos = {100, 100};
     float TX = 500;
@@ -15,7 +19,7 @@ int main() {
     Vector2 EnemyPos = {TX,TY};
     Vector2 GridPos = {GRX, GRY};
     Vector2 BulletSpeed = {6,3};
-    Vector2 mousePos = GetMousePosition();
+    Vector2 mousePos = {0,0};
     float num = 10;
 
     while (!WindowShouldClose()) {
@@ -59,13 +63,18 @@ int main() {
 
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)){
             DrawText("Mouse Clicked!", 20, 60, 20, DARKBLUE);
-
+            mousePos = GetMousePosition();
             DrawText(std::to_string(mousePos.x).c_str(), 20, 450, 20, WHITE);
             DrawText(std::to_string(mousePos.y).c_str(), 20, 500, 20, WHITE);
-            if (mousePos.x >10){
-                    DrawText("Hit!", 50, 450, 20, YELLOW);
-                }
+
         }
+        if (mousePos.x < 430 && mousePos.y < 430){
+
+            track.push_back("Hit");
+                DrawText("Hit!", mousePos.x, mousePos.y, 20, YELLOW);
+
+
+            }
 
         for (int i =0; i<num; i++){
 
@@ -76,7 +85,9 @@ int main() {
             }
         }
 
-
+        DrawText(cars.front().c_str(), 500,450,20,GREEN);
+         std::cout << cars.front();
+         std::cout << cars.back();
         DrawText(std::to_string(TX).c_str(), 300, 50, 20, RED);
         DrawText(std::to_string(TY).c_str(), 300, 300, 20, RED);
         DrawText(std::to_string(r).c_str(), 50, 50, 20, RED);

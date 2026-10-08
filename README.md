@@ -12,3 +12,7 @@ cmake --build build
 ./build/topdown_game
 cmake --build build && ./build/topdown_game
 ```
+
+to re show path:
+PROMPT='%n@%m %1~ %# '
+To bring it back permanently, open ~/.zshrc with open -e ~/.zshrc, delete the prompt-related lines, save, and reopen Terminal.
